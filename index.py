@@ -15,6 +15,8 @@ def mutar(padre, genes, resultado_objetivo):
     index = random.randrange(0, len(padre))
     if (resultado_objetivo[index] != padre[index]):
         padre = padre[:index] + genes[random.randrange(0, len(genes))] + padre[index+1:]
+    else:
+        padre = mutar(padre, genes, resultado_objetivo)
     return padre
 
 def mostrar(propuesta, tiempo_inicio, resultado_objetivo, mostrar_anterior):
